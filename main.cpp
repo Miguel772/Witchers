@@ -2,6 +2,11 @@
 #include <locale.h> // adiciona caracteres ao sistema Ex: "ç"
 #include <string.h>
 using namespace std; //MEU DUESAKSDJASKDLJASKDJASKDLJASKDLJSKDJKDSJl
+ int G = 0;
+string Login1;
+  int CodSenha;
+
+
 
 class Aluno {
 public:
@@ -539,7 +544,7 @@ int h;
 
       case 5:
         for (cont = 1; cont <= quant_aluno;
-             cont++) /*Se cont for menor que 50, cont é somado a mais um.*/
+             cont++) /*Se cont for menor que quant_aluno, cont é somado a mais um.*/
         {
           int i;
           for (i = 1; i <= cont; i++)
@@ -580,16 +585,118 @@ int h;
 
 };  // encerra o class
 
-int main() {
-  Aluno Estudante;
 
+
+void menuprincipaldepoisdoprimeirocadastro(){
+
+     int CodAcesso;
+  
+  int Codadmin = 123;
+  string Login2;
+  string Login3 = "Admin";
+  Aluno Estudante;
+ 
+  
+ do{
+     cout<<"Digite:"<<endl;
+  cout<<"1 - Acessar sistema."<<endl;
+  cout<<"0 - Sair."<<endl;
+  cin>>G;
+    
+    switch(G){
+    case 0:
+    break;
+      break;
+
+    case 1:
+cout<<"Digite o login: "<<endl;
+      cin>>Login2;
+      
+cout<<"Digite a senha de acesso do administrador: "<<endl;
+  cin>>CodAcesso;
+
+      if (CodAcesso == CodSenha && Login2 == Login1 || Login2 == Login3 || CodAcesso == Codadmin){
   Estudante.CadAluno();
+    }
+else{cout<<"Senha ou usuário não coincidem"<<endl;}
+      break;
+
+      default: cout<<"Número digitado não bate com nenhuma das opções. "<<endl;
+      break;
+      }
+    
+  
+    }while(G != 0);
+}
+  
+
+int main(){
+  int CodAcesso;
+  string tecla;
+  int Codadmin = 123;
+  string name;
+  string Login2;
+  string Login3 = "Admin";
+  Aluno Estudante;
+  cout<<"Olá, eu sou seu assistente virtual, mas pode me chamar de Diego, qual seria seu nome?"<<endl;
+  cin>>name;
+  cout<<"                     "<<endl;
+
+  cout<<"Olá, " <<name<< ", eu irei te ajudar a dar os primeiros passos nesse sistema, para começar, você deve cadastrar um login de usuário e um cadastro de senha, cadastre quantos logins desejar, porém lembre-se, "<<name<<", é muito importante que você não se esqueça desse login e nem de sua senha, tudo bem? Para a própria segurança das informações de seus alunos. Bom, com isso dito, só queria avisá-lo que temos um manual de instruções completo pra esse sistema, tudo bem? Boa sorte."<<endl;
+  cout<<"Digite qualquer caractere para continuar: "<<endl;
+  cin>>tecla;
+  
+  do{
+     cout<<"Digite: "<<endl;
+  cout<<"1 - Cadastrar usuario e senha."<<endl;
+  cout<<"2 - Acessar sistema."<<endl;
+  cout<<"0 - Sair."<<endl;
+  cin>>G;
+    
+    switch(G){
+    case 0:
+    break;
+    
+    case 1:
+  cout<<"Digite o nome do adm: "<<endl;
+  cin>>Login1;
+  cout<<"Cadastre a senha: "<<endl;
+  cin>>CodSenha;
+  cout<<"Senha e Login cadastrados. "<<endl;
+     
+      break;
+
+    case 2:
+cout<<"Digite o login: "<<endl;
+      cin>>Login2;
+      
+cout<<"Digite a senha de acesso do administrador: "<<endl;
+  cin>>CodAcesso;
+
+      if (CodAcesso == CodSenha && Login2 == Login1 || Login2 == Login3 || CodAcesso == Codadmin){
+        
+  Estudante.CadAluno();
+
+menuprincipaldepoisdoprimeirocadastro();
+
+        
+        
+     }
+        
+else{cout<<"Senha ou usuário não coincidem"<<endl;}
+      break;
+
+      default: cout<<"Número digitado não bate com nenhuma das opções. "<<endl;
+      break;
+      }
+    }while(G != 0);
 
   cout << "Obrigado por usar nosso programa, ainda estamos em fase de desenvolvimento, voce fez parte disso, tenha uma otima noite :)."
        << endl;
 
   return 0;
 };
+
 
 /*Dica switch(opcao){
   case 0:
