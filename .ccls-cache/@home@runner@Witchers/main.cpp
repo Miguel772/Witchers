@@ -543,14 +543,13 @@ int h;
         break;
 
       case 5:
+             
         for (cont = 1; cont <= quant_aluno;
              cont++) /*Se cont for menor que quant_aluno, cont é somado a mais um.*/
+       
         {
-          int i;
-          for (i = 1; i <= cont; i++)
 
-            cout << "Cod Matricula (O último): [" << i << "]" << endl;
-
+            cout << "Cod Matricula (O último): [" << cont << "]" << endl;
           cout << "Nome do aluno: " << Nome[cont] << endl;
           cout << "Email do aluno: " << email[cont] << endl;
           cout << "CPF do aluno: " << CPF[cont] << endl;
